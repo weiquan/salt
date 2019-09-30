@@ -1,0 +1,427 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+ABS	polish.c	47;"	d	file:
+AC_KSEQ_H	kseq.h	29;"	d
+AC_KSORT_H	ksort.h	56;"	d
+AC_KVEC_H	kvec.h	49;"	d
+AC_VERSION_KHASH_H	khash.h	113;"	d
+ALGO_LV	polish.c	42;"	d	file:
+ALGO_SW	polish.c	41;"	d	file:
+ATTRIBUTE	utils.h	37;"	d
+ATTRIBUTE	utils.h	39;"	d
+BWA_UBYTE	bntseq.h	34;"	d
+BWT_BNTSEQ_H	bntseq.h	29;"	d
+CC	Makefile	/^CC=			gcc$/;"	m
+CFLAGS	Makefile	/^CFLAGS=		-g -Wall -O2#-pg $/;"	m
+CHECK_IN_RANGE	polish.c	/^static inline int CHECK_IN_RANGE(uint32_t a, uint32_t b, uint32_t small, uint32_t large){$/;"	f	file:	signature:(uint32_t a, uint32_t b, uint32_t small, uint32_t large)
+COMPACT_CIGAR_BINARY	LandauVishkin.h	/^    COMPACT_CIGAR_BINARY = 2,$/;"	e	enum:__anon4
+COMPACT_CIGAR_BINARY	lv.h	/^    COMPACT_CIGAR_BINARY = 2,$/;"	e	enum:__anon14
+COMPACT_CIGAR_STRING	LandauVishkin.h	/^    COMPACT_CIGAR_STRING = 0,$/;"	e	enum:__anon4
+COMPACT_CIGAR_STRING	lv.h	/^    COMPACT_CIGAR_STRING = 0,$/;"	e	enum:__anon14
+CXX	Makefile	/^CXX=		g++$/;"	m
+CXXFLAGS	Makefile	/^CXXFLAGS=	$(CFLAGS)$/;"	m
+CigarFormat	LandauVishkin.h	/^} CigarFormat;$/;"	t	typeref:enum:__anon4
+CigarFormat	lv.h	/^} CigarFormat;$/;"	t	typeref:enum:__anon14
+CountTrailingZeroes	LandauVishkin.c	11;"	d	file:
+CountTrailingZeroes	lv.c	11;"	d	file:
+DELIM_COLON	samParser.c	/^const char *DELIM_COLON = ":";$/;"	v
+DELIM_COMMA	samParser.c	/^const char *DELIM_COMMA = ",";$/;"	v
+DELIM_SEMICOLON	samParser.c	/^const char *DELIM_SEMICOLON = ";";$/;"	v
+DELIM_TAB	samParser.c	/^const char *DELIM_TAB = "\\t";$/;"	v
+DFLAGS	Makefile	/^DFLAGS=		#-DHAVE_PTHREAD #-DDEBUG#-D_FILE_OFFSET_BITS=64 $/;"	m
+DFLAGS	Makefile	/^DFLAGS=		-DHAVE_PTHREAD#-DDEBUG#-D_FILE_OFFSET_BITS=64 $/;"	m
+EXPANDED_CIGAR_STRING	LandauVishkin.h	/^    EXPANDED_CIGAR_STRING = 1,$/;"	e	enum:__anon4
+EXPANDED_CIGAR_STRING	lv.h	/^    EXPANDED_CIGAR_STRING = 1,$/;"	e	enum:__anon14
+FSYNC_ON_FLUSH	utils.c	27;"	d	file:
+GAP_EX	polish.c	/^const int GAP_EX =1;$/;"	v
+GAP_OP	polish.c	/^const int GAP_OP =3;$/;"	v
+HIGH_BOUNDARY	polish.c	145;"	d	file:
+INCLUDES	Makefile	/^INCLUDES=		$/;"	m
+IN_RANGE	polish.c	144;"	d	file:
+KHASH_DECLARE	khash.h	345;"	d
+KHASH_INIT	khash.h	353;"	d
+KHASH_INIT2	khash.h	349;"	d
+KHASH_MAP_INIT_INT	khash.h	593;"	d
+KHASH_MAP_INIT_INT64	khash.h	608;"	d
+KHASH_MAP_INIT_STR	khash.h	624;"	d
+KHASH_SET_INIT_INT	khash.h	585;"	d
+KHASH_SET_INIT_INT64	khash.h	600;"	d
+KHASH_SET_INIT_STR	khash.h	616;"	d
+KSEQ_DECLARE	kseq.h	232;"	d
+KSEQ_INIT	kseq.h	230;"	d
+KSEQ_INIT2	kseq.h	224;"	d
+KSEQ_INIT2	utils.c	/^KSEQ_INIT2(, gzFile, err_gzread)$/;"	f
+KSORT_INIT	ksort.h	72;"	d
+KSORT_INIT_GENERIC	ksort.h	270;"	d
+KSORT_INIT_STR	ksort.h	271;"	d
+KSORT_SWAP	ksort.h	70;"	d
+KSTREAM_INIT	kseq.h	147;"	d
+KSTRING_H	kstring.h	2;"	d
+KSTRING_T	kseq.h	84;"	d
+KSTRING_T	kstring.h	12;"	d
+KS_SEP_LINE	kseq.h	41;"	d
+KS_SEP_MAX	kseq.h	42;"	d
+KS_SEP_SPACE	kseq.h	39;"	d
+KS_SEP_TAB	kseq.h	40;"	d
+LH3_UTILS_H	utils.h	29;"	d
+LIBS	Makefile	/^LIBS=		-lm -lz #-lpthread $/;"	m
+LIKELY	ssw.c	47;"	d	file:
+LIKELY	ssw.c	50;"	d	file:
+LOW_BOUNDARY	polish.c	143;"	d	file:
+MAX_DISTANCE	polish.c	/^const int MAX_DISTANCE = 13;$/;"	v
+MAX_ISIZE	polish.c	/^const int MAX_ISIZE = 650;$/;"	v
+MAX_K	LandauVishkin.c	13;"	d	file:
+MAX_K	lv.c	13;"	d	file:
+MAX_SHIFT	polish.c	389;"	d	file:
+MD	samParser.h	/^    int l_md; char *MD;$/;"	m	struct:__anon2
+MIN_ISIZE	polish.c	/^const int MIN_ISIZE = 350;$/;"	v
+OBJS	Makefile	/^OBJS=		utils.o lv.o bntseq.o kstring.o samParser.o ssw.o polish.o$/;"	m
+PROG	Makefile	/^PROG=		polish$/;"	m
+SAM_FLAG_MATE_READ1	polish.c	35;"	d	file:
+SAM_FLAG_MATE_READ2	polish.c	36;"	d	file:
+SAM_FLAG_MATE_STRAND	polish.c	34;"	d	file:
+SAM_FLAG_MATE_UNMAPPED	polish.c	32;"	d	file:
+SAM_FLAG_PAIRED	polish.c	29;"	d	file:
+SAM_FLAG_PROPER_PAIRED	polish.c	30;"	d	file:
+SAM_FLAG_SECANDARY_ALN	polish.c	37;"	d	file:
+SAM_FLAG_STRAND	polish.c	33;"	d	file:
+SAM_FLAG_UNMAPED	polish.c	31;"	d	file:
+SAM_t	samParser.h	/^} SAM_t;$/;"	t	typeref:struct:__anon2
+SSW_H	ssw.h	12;"	d
+SUBDIRS	Makefile	/^SUBDIRS=	. $/;"	m
+SWAP	polish.c	46;"	d	file:
+UNLIKELY	ssw.c	48;"	d	file:
+UNLIKELY	ssw.c	51;"	d	file:
+UNMAPPED_SCORE	polish.c	390;"	d	file:
+_ASSERT	LandauVishkin.c	9;"	d	file:
+_ASSERT	lv.c	9;"	d	file:
+__AC_KHASH_H	khash.h	105;"	d
+__KHASH_IMPL	khash.h	198;"	d
+__KHASH_PROTOTYPES	khash.h	189;"	d
+__KHASH_TYPE	khash.h	181;"	d
+__KSEQ_BASIC	kseq.h	155;"	d
+__KSEQ_READ	kseq.h	175;"	d
+__KSEQ_TYPE	kseq.h	217;"	d
+__KS_BASIC	kseq.h	54;"	d
+__KS_GETC	kseq.h	70;"	d
+__KS_GETUNTIL	kseq.h	95;"	d
+__KS_TYPE	kseq.h	44;"	d
+__SAMPARSER_H	samParser.h	19;"	d
+__SWAP_GENRIC	polish.c	115;"	d	file:
+__SWAP_HIT	polish.c	/^static inline void __SWAP_HIT(hit_t *h0, hit_t* h1)$/;"	f	file:	signature:(hit_t *h0, hit_t* h1)
+__ac_HASH_UPPER	khash.h	/^static const double __ac_HASH_UPPER = 0.77;$/;"	v
+__ac_Wang_hash	khash.h	/^static kh_inline khint_t __ac_Wang_hash(khint_t key)$/;"	f	signature:(khint_t key)
+__ac_X31_hash_string	khash.h	/^static kh_inline khint_t __ac_X31_hash_string(const char *s)$/;"	f	signature:(const char *s)
+__ac_fsize	khash.h	160;"	d
+__ac_inc	khash.h	155;"	d
+__ac_inc	khash.h	157;"	d
+__ac_isdel	khash.h	147;"	d
+__ac_iseither	khash.h	148;"	d
+__ac_isempty	khash.h	146;"	d
+__ac_set_isboth_false	khash.h	151;"	d
+__ac_set_isdel_false	khash.h	149;"	d
+__ac_set_isdel_true	khash.h	152;"	d
+__ac_set_isempty_false	khash.h	150;"	d
+__get_pac	polish.c	45;"	d	file:
+__get_refseq	polish.c	/^int __get_refseq(unsigned char *refseq, int l_seq, unsigned char *pac, unsigned int l_pac, unsigned int start)$/;"	f	signature:(unsigned char *refseq, int l_seq, unsigned char *pac, unsigned int l_pac, unsigned int start)
+__kstring_t	kseq.h	/^typedef struct __kstring_t {$/;"	s
+__kstring_t	kstring.h	/^typedef struct __kstring_t {$/;"	s
+__lt_offset	polish.c	111;"	d	file:
+__min	LandauVishkin.c	12;"	d	file:
+__min	lv.c	12;"	d	file:
+__pairing	polish.c	/^int __pairing(multi_hits_t *forward_hit, multi_hits_t *backward_hit)$/;"	f	signature:(multi_hits_t *forward_hit, multi_hits_t *backward_hit)
+__set_pac	polish.c	44;"	d	file:
+_err_fatal_simple	utils.c	/^void _err_fatal_simple(const char *func, const char *msg)$/;"	f	signature:(const char *func, const char *msg)
+_err_fatal_simple_core	utils.c	/^void _err_fatal_simple_core(const char *func, const char *msg)$/;"	f	signature:(const char *func, const char *msg)
+_profile	ssw.c	/^struct _profile{$/;"	s	file:
+_uint64	LandauVishkin.c	10;"	d	file:
+_uint64	lv.c	10;"	d	file:
+a	utils.h	/^typedef struct { size_t n, m; pair64_t *a; } pair64_v;$/;"	m	struct:__anon13
+a	utils.h	/^typedef struct { size_t n, m; uint64_t *a; } uint64_v;$/;"	m	struct:__anon12
+align_destroy	ssw.c	/^void align_destroy (s_align* a) {$/;"	f	signature:(s_align* a)
+align_destroy	ssw.h	/^void align_destroy (s_align* a);$/;"	p	signature:(s_align* a)
+alignment_end	ssw.c	/^} alignment_end;$/;"	t	typeref:struct:__anon9	file:
+amb	bntseq.h	/^	char amb;$/;"	m	struct:__anon7
+ambs	bntseq.h	/^	bntamb1_t *ambs; \/\/ n_holes elements$/;"	m	struct:__anon8
+anno	bntseq.h	/^	char *name, *anno;$/;"	m	struct:__anon6
+anns	bntseq.h	/^	bntann1_t *anns; \/\/ n_seqs elements$/;"	m	struct:__anon8
+b0	samParser.h	/^    int b0,b1; \/\/--LV only$/;"	m	struct:__anon2
+b1	samParser.h	/^    int b0,b1; \/\/--LV only$/;"	m	struct:__anon2
+banded_sw	ssw.c	/^cigar* banded_sw (const int8_t* ref,$/;"	f	signature:(const int8_t* ref, const int8_t* read, int32_t refLen, int32_t readLen, int32_t score, const uint32_t weight_gapO, const uint32_t weight_gapE, int32_t band_width, const int8_t* mat, int32_t n)
+bias	ssw.c	/^	uint8_t bias;$/;"	m	struct:_profile	file:
+bns_coor_pac2real	bntseq.c	/^int bns_coor_pac2real(const bntseq_t *bns, int64_t pac_coor, int len, int32_t *real_seq)$/;"	f	signature:(const bntseq_t *bns, int64_t pac_coor, int len, int32_t *real_seq)
+bns_coor_pac2real	bntseq.h	/^	int bns_coor_pac2real(const bntseq_t *bns, int64_t pac_coor, int len, int32_t *real_seq);$/;"	p	signature:(const bntseq_t *bns, int64_t pac_coor, int len, int32_t *real_seq)
+bns_destroy	bntseq.c	/^void bns_destroy(bntseq_t *bns)$/;"	f	signature:(bntseq_t *bns)
+bns_destroy	bntseq.h	/^	void bns_destroy(bntseq_t *bns);$/;"	p	signature:(bntseq_t *bns)
+bns_dump	bntseq.c	/^void bns_dump(const bntseq_t *bns, const char *prefix)$/;"	f	signature:(const bntseq_t *bns, const char *prefix)
+bns_dump	bntseq.h	/^	void bns_dump(const bntseq_t *bns, const char *prefix);$/;"	p	signature:(const bntseq_t *bns, const char *prefix)
+bns_fasta2bntseq	bntseq.c	/^void bns_fasta2bntseq(gzFile fp_fa, const char *prefix)$/;"	f	signature:(gzFile fp_fa, const char *prefix)
+bns_fasta2bntseq	bntseq.h	/^	void bns_fasta2bntseq(gzFile fp_fa, const char *prefix);$/;"	p	signature:(gzFile fp_fa, const char *prefix)
+bns_restore	bntseq.c	/^bntseq_t *bns_restore(const char *prefix)$/;"	f	signature:(const char *prefix)
+bns_restore	bntseq.h	/^	bntseq_t *bns_restore(const char *prefix);$/;"	p	signature:(const char *prefix)
+bns_restore_core	bntseq.c	/^bntseq_t *bns_restore_core(const char *ann_filename, const char* amb_filename, const char* pac_filename)$/;"	f	signature:(const char *ann_filename, const char* amb_filename, const char* pac_filename)
+bns_restore_core	bntseq.h	/^	bntseq_t *bns_restore_core(const char *ann_filename, const char* amb_filename, const char* pac_filename);$/;"	p	signature:(const char *ann_filename, const char* amb_filename, const char* pac_filename)
+bntamb1_t	bntseq.h	/^} bntamb1_t;$/;"	t	typeref:struct:__anon7
+bntann1_t	bntseq.h	/^} bntann1_t;$/;"	t	typeref:struct:__anon6
+bntseq_t	bntseq.h	/^} bntseq_t;$/;"	t	typeref:struct:__anon8
+bool	LandauVishkin.h	20;"	d
+bool	lv.h	20;"	d
+buf	samParser.h	/^    char *buf;    $/;"	m	struct:__anon2
+bwa_fa2pac	bntseq.c	/^int bwa_fa2pac(int argc, char *argv[])$/;"	f	signature:(int argc, char *argv[])
+chrom	samParser.h	/^    char *chrom;$/;"	m	struct:__anon1
+cigar	samParser.h	/^    kstring_t cigar;$/;"	m	struct:__anon2
+cigar	ssw.c	/^} cigar;$/;"	t	typeref:struct:__anon10	file:
+cigar	ssw.h	/^	uint32_t* cigar;	$/;"	m	struct:__anon15
+cigarLen	ssw.h	/^	int32_t cigarLen;	$/;"	m	struct:__anon15
+computeEditDistance	LandauVishkin.c	/^int computeEditDistance($/;"	f	signature:( const char* text, int textLen, const char* pattern, int patternLen, int k)
+computeEditDistance	LandauVishkin.h	/^int computeEditDistance($/;"	p	signature:( const char* text, int textLen, const char* pattern, int patternLen, int k)
+computeEditDistance	lv.c	/^int computeEditDistance($/;"	f	signature:( const char* text, int textLen, const char* pattern, int patternLen, int k)
+computeEditDistance	lv.h	/^int computeEditDistance($/;"	p	signature:( const char* text, int textLen, const char* pattern, int patternLen, int k)
+computeEditDistanceWithCigar	LandauVishkin.c	/^int computeEditDistanceWithCigar($/;"	f	signature:( const char* text, int textLen, const char* pattern, int patternLen, int k, char *cigarBuf, int cigarBufLen, bool useM, CigarFormat format)
+computeEditDistanceWithCigar	LandauVishkin.h	/^int computeEditDistanceWithCigar($/;"	p	signature:( const char* text, int textLen, const char* pattern, int patternLen, int k, char *cigarBuf, int cigarBufLen, bool useM, CigarFormat format)
+computeEditDistanceWithCigar	lv.c	/^int computeEditDistanceWithCigar($/;"	f	signature:( const char* text, int textLen, const char* pattern, int patternLen, int k, char *cigarBuf, int cigarBufLen, bool useM, CigarFormat format)
+computeEditDistanceWithCigar	lv.h	/^int computeEditDistanceWithCigar($/;"	p	signature:( const char* text, int textLen, const char* pattern, int patternLen, int k, char *cigarBuf, int cigarBufLen, bool useM, CigarFormat format)
+cputime	utils.c	/^double cputime()$/;"	f
+cputime	utils.h	/^	double cputime();$/;"	p	signature:()
+depth	ksort.h	/^	int depth;$/;"	m	struct:__anon3
+distance_algorithm	polish.c	/^    int distance_algorithm;$/;"	m	struct:__anon5	file:
+err_fatal	utils.c	/^void err_fatal(const char *header, const char *fmt, ...)$/;"	f	signature:(const char *header, const char *fmt, ...)
+err_fatal_core	utils.c	/^void err_fatal_core(const char *header, const char *fmt, ...)$/;"	f	signature:(const char *header, const char *fmt, ...)
+err_fatal_simple	utils.h	42;"	d
+err_fatal_simple_core	utils.h	43;"	d
+err_fclose	utils.c	/^int err_fclose(FILE *stream) $/;"	f	signature:(FILE *stream)
+err_fclose	utils.h	/^	int err_fclose(FILE *stream);$/;"	p	signature:(FILE *stream)
+err_fflush	utils.c	/^int err_fflush(FILE *stream) $/;"	f	signature:(FILE *stream)
+err_fflush	utils.h	/^	int err_fflush(FILE *stream);$/;"	p	signature:(FILE *stream)
+err_fprintf	utils.c	/^int err_fprintf(FILE *stream, const char *format, ...) $/;"	f	signature:(FILE *stream, const char *format, ...)
+err_fputc	utils.c	/^int err_fputc(int c, FILE *stream)$/;"	f	signature:(int c, FILE *stream)
+err_fputc	utils.h	/^	int err_fputc(int c, FILE *stream);$/;"	p	signature:(int c, FILE *stream)
+err_fputs	utils.c	/^int err_fputs(const char *s, FILE *stream)$/;"	f	signature:(const char *s, FILE *stream)
+err_fputs	utils.h	/^	int err_fputs(const char *s, FILE *stream);$/;"	p	signature:(const char *s, FILE *stream)
+err_fread_noeof	utils.c	/^size_t err_fread_noeof(void *ptr, size_t size, size_t nmemb, FILE *stream)$/;"	f	signature:(void *ptr, size_t size, size_t nmemb, FILE *stream)
+err_fread_noeof	utils.h	/^	size_t err_fread_noeof(void *ptr, size_t size, size_t nmemb, FILE *stream);$/;"	p	signature:(void *ptr, size_t size, size_t nmemb, FILE *stream)
+err_fseek	utils.c	/^int err_fseek(FILE *stream, long offset, int whence)$/;"	f	signature:(FILE *stream, long offset, int whence)
+err_fseek	utils.h	/^	int err_fseek(FILE *stream, long offset, int whence);$/;"	p	signature:(FILE *stream, long offset, int whence)
+err_ftell	utils.c	/^long err_ftell(FILE *stream)$/;"	f	signature:(FILE *stream)
+err_ftell	utils.h	/^	long err_ftell(FILE *stream);$/;"	p	signature:(FILE *stream)
+err_fwrite	utils.c	/^size_t err_fwrite(const void *ptr, size_t size, size_t nmemb, FILE *stream)$/;"	f	signature:(const void *ptr, size_t size, size_t nmemb, FILE *stream)
+err_fwrite	utils.h	/^    size_t err_fwrite(const void *ptr, size_t size, size_t nmemb, FILE *stream);$/;"	p	signature:(const void *ptr, size_t size, size_t nmemb, FILE *stream)
+err_gzclose	utils.c	/^int err_gzclose(gzFile file)$/;"	f	signature:(gzFile file)
+err_gzclose	utils.h	/^	int err_gzclose(gzFile file);$/;"	p	signature:(gzFile file)
+err_gzread	utils.c	/^int err_gzread(gzFile file, void *ptr, unsigned int len)$/;"	f	signature:(gzFile file, void *ptr, unsigned int len)
+err_gzread	utils.h	/^	int err_gzread(gzFile file, void *ptr, unsigned int len);$/;"	p	signature:(gzFile file, void *ptr, unsigned int len)
+err_printf	utils.c	/^int err_printf(const char *format, ...) $/;"	f	signature:(const char *format, ...)
+err_putchar	utils.h	81;"	d
+err_puts	utils.h	83;"	d
+err_rewind	utils.h	74;"	d
+err_xopen_core	utils.h	/^	FILE *err_xopen_core(const char *func, const char *fn, const char *mode);$/;"	p	signature:(const char *func, const char *fn, const char *mode)
+err_xreopen_core	utils.c	/^FILE *err_xreopen_core(const char *func, const char *fn, const char *mode, FILE *fp)$/;"	f	signature:(const char *func, const char *fn, const char *mode, FILE *fp)
+err_xreopen_core	utils.h	/^	FILE *err_xreopen_core(const char *func, const char *fn, const char *mode, FILE *fp);$/;"	p	signature:(const char *func, const char *fn, const char *mode, FILE *fp)
+err_xzopen_core	utils.c	/^gzFile err_xzopen_core(const char *func, const char *fn, const char *mode)$/;"	f	signature:(const char *func, const char *fn, const char *mode)
+err_xzopen_core	utils.h	/^	gzFile err_xzopen_core(const char *func, const char *fn, const char *mode);$/;"	p	signature:(const char *func, const char *fn, const char *mode)
+false	LandauVishkin.c	16;"	d	file:
+false	lv.c	16;"	d	file:
+flag	samParser.h	/^    int flag;$/;"	m	struct:__anon2
+fp_pac	bntseq.h	/^	FILE *fp_pac;$/;"	m	struct:__anon8
+gen_cigar	polish.c	/^void gen_cigar(SAM_t *sam, unsigned int l_pac, char *pac, unsigned int offset, int ALGO)$/;"	f	signature:(SAM_t *sam, unsigned int l_pac, char *pac, unsigned int offset, int ALGO)
+gi	bntseq.h	/^	uint32_t gi;$/;"	m	struct:__anon6
+hash_64	utils.h	/^static inline uint64_t hash_64(uint64_t key)$/;"	f	signature:(uint64_t key)
+hit_t	samParser.h	/^}hit_t;$/;"	t	typeref:struct:__anon1
+init_destroy	ssw.c	/^void init_destroy (s_profile* p) {$/;"	f	signature:(s_profile* p)
+init_destroy	ssw.h	/^void init_destroy (s_profile* p);$/;"	p	signature:(s_profile* p)
+is_paired	polish.c	/^    int is_paired;$/;"	m	struct:__anon5	file:
+isize	samParser.h	/^    int isize;$/;"	m	struct:__anon2
+kcalloc	khash.h	167;"	d
+kfree	khash.h	176;"	d
+kh_begin	khash.h	515;"	d
+kh_clear	khash.h	441;"	d
+kh_cstr_t	khash.h	/^typedef const char *kh_cstr_t;$/;"	t
+kh_del	khash.h	478;"	d
+kh_destroy	khash.h	434;"	d
+kh_end	khash.h	522;"	d
+kh_exist	khash.h	486;"	d
+kh_foreach	khash.h	545;"	d
+kh_foreach_key	khash.h	558;"	d
+kh_foreach_value	khash.h	572;"	d
+kh_get	khash.h	470;"	d
+kh_init	khash.h	427;"	d
+kh_inline	khash.h	138;"	d
+kh_inline	khash.h	140;"	d
+kh_int64_hash_equal	khash.h	377;"	d
+kh_int64_hash_func	khash.h	373;"	d
+kh_int_hash_equal	khash.h	367;"	d
+kh_int_hash_func	khash.h	363;"	d
+kh_int_hash_func2	khash.h	410;"	d
+kh_key	khash.h	494;"	d
+kh_n_buckets	khash.h	536;"	d
+kh_put	khash.h	461;"	d
+kh_resize	khash.h	449;"	d
+kh_size	khash.h	529;"	d
+kh_str_hash_equal	khash.h	398;"	d
+kh_str_hash_func	khash.h	394;"	d
+kh_val	khash.h	503;"	d
+kh_value	khash.h	508;"	d
+khash_t	khash.h	420;"	d
+khint32_t	khash.h	/^typedef unsigned int khint32_t;$/;"	t
+khint32_t	khash.h	/^typedef unsigned long khint32_t;$/;"	t
+khint64_t	khash.h	/^typedef unsigned long khint64_t;$/;"	t
+khint64_t	khash.h	/^typedef unsigned long long khint64_t;$/;"	t
+khint_t	khash.h	/^typedef khint32_t khint_t;$/;"	t
+khiter_t	khash.h	/^typedef khint_t khiter_t;$/;"	t
+kmalloc	khash.h	170;"	d
+kputc	kstring.h	/^static inline int kputc(int c, kstring_t *s)$/;"	f	signature:(int c, kstring_t *s)
+kputs	kstring.h	/^static inline int kputs(const char *p, kstring_t *s)$/;"	f	signature:(const char *p, kstring_t *s)
+krealloc	khash.h	173;"	d
+kroundup32	khash.h	163;"	d
+kroundup32	kseq.h	92;"	d
+kroundup32	kstring.h	8;"	d
+kroundup32	ssw.c	65;"	d	file:
+ks_combsort	ksort.h	259;"	d
+ks_eof	kseq.h	51;"	d
+ks_heapadjust	ksort.h	262;"	d
+ks_heapmake	ksort.h	261;"	d
+ks_heapsort	ksort.h	260;"	d
+ks_introsort	ksort.h	258;"	d
+ks_introsort_128	utils.h	/^	void ks_introsort_128(size_t n, pair64_t *a);$/;"	p	signature:(size_t n, pair64_t *a)
+ks_introsort_64	utils.h	/^	void ks_introsort_64 (size_t n, uint64_t *a);$/;"	p	signature:(size_t n, uint64_t *a)
+ks_isort_stack_t	ksort.h	/^} ks_isort_stack_t;$/;"	t	typeref:struct:__anon3
+ks_ksmall	ksort.h	263;"	d
+ks_lt_generic	ksort.h	265;"	d
+ks_lt_str	ksort.h	266;"	d
+ks_mergesort	ksort.h	257;"	d
+ks_rewind	kseq.h	52;"	d
+kseq_rewind	kseq.h	153;"	d
+ksprintf	kstring.c	/^int ksprintf(kstring_t *s, const char *fmt, ...)$/;"	f	signature:(kstring_t *s, const char *fmt, ...)
+ksprintf	kstring.h	/^int ksprintf(kstring_t *s, const char *fmt, ...);$/;"	p	signature:(kstring_t *s, const char *fmt, ...)
+ksstr_t	ksort.h	/^typedef const char *ksstr_t;$/;"	t
+kstring_t	kseq.h	/^} kstring_t;$/;"	t	typeref:struct:__kstring_t
+kstring_t	kstring.h	/^} kstring_t;$/;"	t	typeref:struct:__kstring_t
+kv_A	kvec.h	58;"	d
+kv_a	kvec.h	84;"	d
+kv_copy	kvec.h	65;"	d
+kv_destroy	kvec.h	57;"	d
+kv_init	kvec.h	56;"	d
+kv_max	kvec.h	61;"	d
+kv_pop	kvec.h	59;"	d
+kv_push	kvec.h	71;"	d
+kv_pushp	kvec.h	79;"	d
+kv_resize	kvec.h	63;"	d
+kv_roundup32	kvec.h	53;"	d
+kv_size	kvec.h	60;"	d
+kvec_t	kvec.h	55;"	d
+l	kseq.h	/^	size_t l, m;$/;"	m	struct:__kstring_t
+l	kstring.h	/^	size_t l, m;$/;"	m	struct:__kstring_t
+l_md	samParser.h	/^    int l_md; char *MD;$/;"	m	struct:__anon2
+l_pac	bntseq.h	/^	int64_t l_pac;$/;"	m	struct:__anon8
+l_seq	samParser.h	/^    int l_seq; char *seq; \/\/neclotide sequence $/;"	m	struct:__anon2
+l_seq_name	samParser.h	/^    int l_seq_name; char *seq_name;$/;"	m	struct:__anon2
+left	ksort.h	/^	void *left, *right;$/;"	m	struct:__anon3
+len	bntseq.h	/^	int32_t len;$/;"	m	struct:__anon6
+len	bntseq.h	/^	int32_t len;$/;"	m	struct:__anon7
+length	ssw.c	/^	int32_t length;$/;"	m	struct:__anon10	file:
+long_options	polish.c	/^struct option long_options[] = {$/;"	v	typeref:struct:option
+m	kseq.h	/^	size_t l, m;$/;"	m	struct:__kstring_t
+m	kstring.h	/^	size_t l, m;$/;"	m	struct:__kstring_t
+m	utils.h	/^typedef struct { size_t n, m; pair64_t *a; } pair64_v;$/;"	m	struct:__anon13
+m	utils.h	/^typedef struct { size_t n, m; uint64_t *a; } uint64_v;$/;"	m	struct:__anon12
+main	kstring.c	/^int main()$/;"	f
+main	polish.c	/^int main ( int argc, char *argv[] )$/;"	f	signature:( int argc, char *argv[] )
+mapq	samParser.h	/^    int mapq;$/;"	m	struct:__anon2
+mat	ssw.c	/^	const int8_t* mat;$/;"	m	struct:_profile	file:
+mate_pos	samParser.h	/^    unsigned int mate_pos;$/;"	m	struct:__anon2
+mate_seqname	samParser.h	/^    char *mate_seqname;$/;"	m	struct:__anon2
+max16	ssw.c	137;"	d	file:
+max8	ssw.c	381;"	d	file:
+multi_hits	samParser.h	/^    multi_hits_t *multi_hits[2]; $/;"	m	struct:__anon2
+multi_hits_t	samParser.h	/^typedef kvec_t(hit_t) multi_hits_t;$/;"	t
+n	ssw.c	/^	int32_t n;$/;"	m	struct:_profile	file:
+n	utils.h	/^typedef struct { size_t n, m; pair64_t *a; } pair64_v;$/;"	m	struct:__anon13
+n	utils.h	/^typedef struct { size_t n, m; uint64_t *a; } uint64_v;$/;"	m	struct:__anon12
+n_ambs	bntseq.h	/^	int32_t n_ambs;$/;"	m	struct:__anon6
+n_holes	bntseq.h	/^	int32_t n_holes;$/;"	m	struct:__anon8
+n_seqs	bntseq.h	/^	int32_t n_seqs;$/;"	m	struct:__anon8
+name	bntseq.h	/^	char *name, *anno;$/;"	m	struct:__anon6
+nst_nt4_table	bntseq.c	/^static unsigned char nst_nt4_table[256] = {$/;"	v	file:
+nst_nt4_table	samParser.c	/^static unsigned char nst_nt4_table[256] = {$/;"	v	file:
+nst_rseq	samParser.h	/^    unsigned char *nst_seq, *nst_rseq;\/\/number string text$/;"	m	struct:__anon2
+nst_seq	samParser.h	/^    unsigned char *nst_seq, *nst_rseq;\/\/number string text$/;"	m	struct:__anon2
+offset	bntseq.h	/^	int64_t offset;$/;"	m	struct:__anon6
+offset	bntseq.h	/^	int64_t offset;$/;"	m	struct:__anon7
+offset	samParser.h	/^    unsigned int offset;$/;"	m	struct:__anon1
+opt_destroy	polish.c	/^inline void opt_destroy(opt_t *opt){$/;"	f	signature:(opt_t *opt)
+opt_init	polish.c	/^inline opt_t* opt_init(){$/;"	f
+opt_t	polish.c	/^} opt_t;$/;"	t	typeref:struct:__anon5	file:
+pac_restore	polish.c	/^static inline uint8_t *pac_restore(const bntseq_t *bns)$/;"	f	file:	signature:(const bntseq_t *bns)
+pair64_lt	utils.c	45;"	d	file:
+pair64_t	utils.h	/^} pair64_t;$/;"	t	typeref:struct:__anon11
+pair64_v	utils.h	/^typedef struct { size_t n, m; pair64_t *a; } pair64_v;$/;"	t	typeref:struct:__anon13
+polish_core	polish.c	/^void polish_core(char *bns_prefix, char *fn_sam, const opt_t *opt)$/;"	f	signature:(char *bns_prefix, char *fn_sam, const opt_t *opt)
+polish_sam_pe	polish.c	/^void polish_sam_pe(SAM_t *sam0, SAM_t *sam1, int is_properpaired)$/;"	f	signature:(SAM_t *sam0, SAM_t *sam1, int is_properpaired)
+pos	samParser.h	/^    unsigned int pos;$/;"	m	struct:__anon1
+primary	samParser.h	/^    int primary;    \/\/multi_hits->a[primary].tid, multi_hits->a[primary].pos$/;"	m	struct:__anon2
+print_help	polish.c	/^static inline void print_help(){$/;"	f	file:
+profile_byte	ssw.c	/^	__m128i* profile_byte;	\/\/ 0: none$/;"	m	struct:_profile	file:
+profile_word	ssw.c	/^	__m128i* profile_word;	\/\/ 0: none$/;"	m	struct:_profile	file:
+qP_byte	ssw.c	/^__m128i* qP_byte (const int8_t* read_num,$/;"	f	signature:(const int8_t* read_num, const int8_t* mat, const int32_t readLen, const int32_t n, uint8_t bias)
+qP_word	ssw.c	/^__m128i* qP_word (const int8_t* read_num,$/;"	f	signature:(const int8_t* read_num, const int8_t* mat, const int32_t readLen, const int32_t n)
+qual	samParser.h	/^    char *qual;$/;"	m	struct:__anon2
+read	ssw.c	/^	const int8_t* read;$/;"	m	struct:_profile	file:
+read	ssw.c	/^	int32_t read;    \/\/alignment ending position on read, 0-based $/;"	m	struct:__anon9	file:
+readLen	ssw.c	/^	int32_t readLen;$/;"	m	struct:_profile	file:
+read_begin1	ssw.h	/^	int32_t	read_begin1;	$/;"	m	struct:__anon15
+read_end1	ssw.h	/^	int32_t read_end1;	$/;"	m	struct:__anon15
+readline	samParser.c	/^char *readline(FILE *fp)$/;"	f	signature:(FILE *fp)
+realtime	utils.c	/^double realtime()$/;"	f
+realtime	utils.h	/^	double realtime();$/;"	p	signature:()
+ref	ssw.c	/^	int32_t ref;	 \/\/0-based position $/;"	m	struct:__anon9	file:
+ref_begin1	ssw.h	/^	int32_t ref_begin1;	$/;"	m	struct:__anon15
+ref_end1	ssw.h	/^	int32_t ref_end1;	$/;"	m	struct:__anon15
+ref_end2	ssw.h	/^	int32_t ref_end2;$/;"	m	struct:__anon15
+right	ksort.h	/^	void *left, *right;$/;"	m	struct:__anon3
+rm_repeat_hits	polish.c	/^void rm_repeat_hits(multi_hits_t *hits)$/;"	f	signature:(multi_hits_t *hits)
+s	kseq.h	/^	char *s;$/;"	m	struct:__kstring_t
+s	kstring.h	/^	char *s;$/;"	m	struct:__kstring_t
+s_align	ssw.h	/^} s_align;$/;"	t	typeref:struct:__anon15
+s_profile	ssw.h	/^typedef struct _profile s_profile;$/;"	t	typeref:struct:_profile
+sam_destroy	samParser.c	/^void sam_destroy(SAM_t *sam)$/;"	f	signature:(SAM_t *sam)
+sam_destroy	samParser.h	/^void sam_destroy(SAM_t *sam);$/;"	p	signature:(SAM_t *sam)
+sam_readline	samParser.c	/^SAM_t *sam_readline(FILE *fp)$/;"	f	signature:(FILE *fp)
+sam_readline	samParser.h	/^SAM_t *sam_readline(FILE *fp);$/;"	p	signature:(FILE *fp)
+sam_skipHeader	samParser.c	/^void sam_skipHeader(FILE *fp)$/;"	f	signature:(FILE *fp)
+sam_skipHeader	samParser.h	/^void sam_skipHeader(FILE *fp);$/;"	p	signature:(FILE *fp)
+score	samParser.h	/^    int score;$/;"	m	struct:__anon1
+score	ssw.c	/^	uint16_t score;$/;"	m	struct:__anon9	file:
+score1	ssw.h	/^	uint16_t score1;	$/;"	m	struct:__anon15
+score2	ssw.h	/^	uint16_t score2;	$/;"	m	struct:__anon15
+score_mat	polish.c	/^static int8_t score_mat[25] = { 2, -2, -2, -2,0,$/;"	v	file:
+seed	bntseq.h	/^	uint32_t seed;$/;"	m	struct:__anon8
+seq	samParser.h	/^    int l_seq; char *seq; \/\/neclotide sequence $/;"	m	struct:__anon2
+seq	ssw.c	/^	uint32_t* seq;$/;"	m	struct:__anon10	file:
+seq_name	samParser.h	/^    int l_seq_name; char *seq_name;$/;"	m	struct:__anon2
+set_d	ssw.c	58;"	d	file:
+set_u	ssw.c	55;"	d	file:
+short_options	polish.c	/^char* const short_options = "shp";$/;"	v
+ssw_align	ssw.c	/^s_align* ssw_align (const s_profile* prof, $/;"	f	signature:(const s_profile* prof, const int8_t* ref, int32_t refLen, const uint8_t weight_gapO, const uint8_t weight_gapE, const uint8_t flag, const uint16_t filters, const int32_t filterd, const int32_t maskLen)
+ssw_align	ssw.h	/^s_align* ssw_align (const s_profile* prof, $/;"	p	signature:(const s_profile* prof, const int8_t* ref, int32_t refLen, const uint8_t weight_gapO, const uint8_t weight_gapE, const uint8_t flag, const uint16_t filters, const int32_t filterd, const int32_t maskLen)
+ssw_init	ssw.c	/^s_profile* ssw_init (const int8_t* read, const int32_t readLen, const int8_t* mat, const int32_t n, const int8_t score_size) {$/;"	f	signature:(const int8_t* read, const int32_t readLen, const int8_t* mat, const int32_t n, const int8_t score_size)
+ssw_init	ssw.h	/^s_profile* ssw_init (const int8_t* read, const int32_t readLen, const int8_t* mat, const int32_t n, const int8_t score_size);$/;"	p	signature:(const int8_t* read, const int32_t readLen, const int8_t* mat, const int32_t n, const int8_t score_size)
+ssw_seq_reverse	ssw.c	/^int8_t* ssw_seq_reverse(const int8_t* seq, int32_t end)	\/* end is 0-based alignment ending position *\/	$/;"	f	signature:(const int8_t* seq, int32_t end)
+strand	samParser.h	/^    int strand;$/;"	m	struct:__anon2
+sw_sse2_byte	ssw.c	/^alignment_end* sw_sse2_byte (const int8_t* ref,$/;"	f	signature:(const int8_t* ref, int8_t ref_dir, int32_t refLen, int32_t readLen, const uint8_t weight_gapO, const uint8_t weight_gapE, __m128i* vProfile, uint8_t terminate, uint8_t bias, int32_t maskLen)
+sw_sse2_word	ssw.c	/^alignment_end* sw_sse2_word (const int8_t* ref, $/;"	f	signature:(const int8_t* ref, int8_t ref_dir, int32_t refLen, int32_t readLen, const uint8_t weight_gapO, const uint8_t weight_gapE, __m128i* vProfile, uint16_t terminate, int32_t maskLen)
+true	LandauVishkin.c	15;"	d	file:
+true	lv.c	15;"	d	file:
+ubyte_t	bntseq.h	/^typedef uint8_t ubyte_t;$/;"	t
+uint64_v	utils.h	/^typedef struct { size_t n, m; uint64_t *a; } uint64_v;$/;"	t	typeref:struct:__anon12
+writeCigar	LandauVishkin.c	/^bool writeCigar(char** o_buf, int* o_buflen, int count, char code, CigarFormat format)$/;"	f	signature:(char** o_buf, int* o_buflen, int count, char code, CigarFormat format)
+writeCigar	lv.c	/^bool writeCigar(char** o_buf, int* o_buflen, int count, char code, CigarFormat format)$/;"	f	signature:(char** o_buf, int* o_buflen, int count, char code, CigarFormat format)
+x	utils.h	/^	uint64_t x, y;$/;"	m	struct:__anon11
+xassert	utils.h	49;"	d
+xopen	utils.h	45;"	d
+xreopen	utils.h	46;"	d
+xzopen	utils.h	47;"	d
+y	utils.h	/^	uint64_t x, y;$/;"	m	struct:__anon11
