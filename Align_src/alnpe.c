@@ -137,7 +137,6 @@ int pairing2(index_t *index, query_t *q0, query_t *q1, const aln_opt_t *aln_opt)
         uint32_t l0 = q0->l_seq; 
         uint32_t l1 = q1->l_seq; 
         uint32_t i = 0, j = 0, jj;
-
         for(i=0; i< n_forward; ++i){
             uint32_t pos0 = forward_hits[i].pos;
             for(jj=j; jj < n_backward; ++jj){
@@ -167,9 +166,7 @@ int pairing2(index_t *index, query_t *q0, query_t *q1, const aln_opt_t *aln_opt)
         hit_t *backward_hits = q0->hits[1].a; 
         uint32_t l0 = q1->l_seq; 
         uint32_t l1 = q0->l_seq; 
-
         uint32_t i = 0, j = 0, jj;
-
         for(i=0; i< n_forward; ++i){
             uint32_t pos0 = forward_hits[i].pos;
             for(jj=j; jj < n_backward; ++jj){
@@ -218,8 +215,8 @@ int pairing2(index_t *index, query_t *q0, query_t *q1, const aln_opt_t *aln_opt)
         end = q0->pos+max_isize+q0->l_seq+q1->l_seq;
         end = end >= l_pac?l_pac:end; 
 
-        if(snpaln_sw(index, &start, &end, q1, STRAND_BACKWARD, aln_opt) == SW_PAIRED){
-        //if(snpaln_sw_snpaware(index, &start, &end, q1, STRAND_BACKWARD, aln_opt) == SW_PAIRED){
+        //if(snpaln_sw(index, &start, &end, q1, STRAND_BACKWARD, aln_opt) == SW_PAIRED){
+        if(snpaln_sw_snpaware(index, &start, &end, q1, STRAND_BACKWARD, aln_opt) == SW_PAIRED){
             query_gen_cigar(index->mixRef->l, index->mixRef->seq, q0);               
             return PAIRED_ALNED;
        }
@@ -227,8 +224,8 @@ int pairing2(index_t *index, query_t *q0, query_t *q1, const aln_opt_t *aln_opt)
         start = q0->pos>max_isize+q1->l_seq?q0->pos-max_isize-q1->l_seq:0;
         end = q0->pos>min_isize?q0->pos-min_isize:0; end = end >= l_pac?l_pac:end; 
 
-        if(snpaln_sw(index, &start, &end, q1, STRAND_FORWARD, aln_opt) == SW_PAIRED){
-        //if(snpaln_sw_snpaware(index, &start, &end, q1, STRAND_FORWARD, aln_opt) == SW_PAIRED){
+        //if(snpaln_sw(index, &start, &end, q1, STRAND_FORWARD, aln_opt) == SW_PAIRED){
+        if(snpaln_sw_snpaware(index, &start, &end, q1, STRAND_FORWARD, aln_opt) == SW_PAIRED){
             query_gen_cigar(index->mixRef->l, index->mixRef->seq, q0);                
             return PAIRED_ALNED;
         }
@@ -238,8 +235,8 @@ int pairing2(index_t *index, query_t *q0, query_t *q1, const aln_opt_t *aln_opt)
     if(q1->strand == STRAND_FORWARD){
         start = q1->pos+min_isize+q1->l_seq;
         end = q1->pos+max_isize+q1->l_seq+q0->l_seq; end = end >= l_pac?l_pac:end; 
-        if(snpaln_sw(index, &start, &end, q0, STRAND_BACKWARD, aln_opt) == SW_PAIRED){
-        //if(snpaln_sw_snpaware(index, &start, &end, q0, STRAND_BACKWARD, aln_opt) == SW_PAIRED){
+        //if(snpaln_sw(index, &start, &end, q0, STRAND_BACKWARD, aln_opt) == SW_PAIRED){
+        if(snpaln_sw_snpaware(index, &start, &end, q0, STRAND_BACKWARD, aln_opt) == SW_PAIRED){
             query_gen_cigar(index->mixRef->l, index->mixRef->seq, q1);
             return PAIRED_ALNED;
         }
@@ -247,8 +244,8 @@ int pairing2(index_t *index, query_t *q0, query_t *q1, const aln_opt_t *aln_opt)
         start = q1->pos>max_isize+q0->l_seq?q1->pos-max_isize-q0->l_seq:0;
         end = q1->pos> min_isize?q1->pos-min_isize:0;        
         end = end >= l_pac?l_pac:end; 
-        if(snpaln_sw(index, &start, &end, q0, STRAND_FORWARD, aln_opt) == SW_PAIRED){
-        //if(snpaln_sw_snpaware(index, &start, &end, q0, STRAND_FORWARD, aln_opt) == SW_PAIRED){
+        //if(snpaln_sw(index, &start, &end, q0, STRAND_FORWARD, aln_opt) == SW_PAIRED){
+        if(snpaln_sw_snpaware(index, &start, &end, q0, STRAND_FORWARD, aln_opt) == SW_PAIRED){
             query_gen_cigar(index->mixRef->l, index->mixRef->seq, q1);
             return PAIRED_ALNED;
         }
@@ -277,7 +274,7 @@ int snpaln_sw_snpaware(index_t *index, uint32_t *start_pos, uint32_t *end_pos, q
    
     
     int32_t l_ref = end -start +1; 
-    uint8_t *ref = (uint8_t *)calloc(l_seq, 1);
+    uint8_t *ref = (uint8_t *)calloc(l_ref, 1);
     uint8_t *read = (uint8_t *)calloc(l_seq, 1);
     
     for(i = 0; i != end - start +1; ++i){

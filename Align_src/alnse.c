@@ -1157,7 +1157,8 @@ void alnse_core1(int tid, index_t *index, int n_query, query_t *multi_query, aln
         aux_reset(aux[0]); 
         aux_reset(aux[1]); 
         if(aln_opt->l_overlap > 0) alnse_overlap_alt(index, query, aln_opt, aux);
-        else{ 
+        else{
+            fprintf(stderr, "Shouldn't be here!!!\n", aln_opt->n_threads); 
             exit(1);
             alnse_nonoverlap(index, query, aln_opt, aux); 
         }
