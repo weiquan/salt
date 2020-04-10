@@ -8,7 +8,7 @@ SRC=		utils.c bwt.c bwtio.c  is.c \
 		bwt_gen.c  QSufSort.c\
 		4bit_bntseq.c 4bit_bwt_gen.c hapmap.c   rbwt.c LookUpTable.c\
 	        localPattern.c mixRef.c index1.c	
-PROG=		index index_debug
+PROG=		salt-idx salt-idx_debug
 INCLUDES=	
 LIBS=		-lm -lz
 SUBDIRS=	. 
@@ -25,10 +25,10 @@ all:$(PROG)
 
 
 
-index:$(OBJS) 
+salt-idx:$(OBJS) 
 		$(CC) $(CFLAGS) $(DFLAGS) $(SRC) -o $@ $(LIBS)
 	
-index_debug:$(OBJS) 
+salt-idx_debug:$(OBJS) 
 		$(CC) -Wall -g $(DFLAGS) $(SRC) -o $@ $(LIBS)
 
 

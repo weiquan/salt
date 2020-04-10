@@ -1,13 +1,13 @@
-all : snpaln snpindex polish
-snpaln:
+all : salt salt-idx polish
+salt:
 	cd ./Align_src/ && $(MAKE)
-	mv ./Align_src/snpaln ./Bin/
-	mv ./Align_src/snpaln_debug ./Debug/
+	mv ./Align_src/salt ./Bin/
+	mv ./Align_src/salt_debug ./Debug/
 
-snpindex:
+salt-idx:
 	cd ./Index_src/ && $(MAKE)
-	mv ./Index_src/index ./Bin/
-	mv ./Index_src/index_debug ./Debug/
+	mv ./Index_src/salt-idx ./Bin/
+	mv ./Index_src/salt-idx_debug ./Debug/
 polish:
 	cd ./Polish_src/ && $(MAKE)
 	mv ./Polish_src/polish ./Bin/

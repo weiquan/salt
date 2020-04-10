@@ -296,20 +296,19 @@ void query_gen_cigar(uint32_t l_ref, const uint32_t *mixRef, query_t *query)
 }
 void query_set_hits(query_t *query, int max_hits, hits_t *hits0, hits_t *hits1)
 {
-    int i, j;
+    size_t i, j;
     uint32_t primary_pos = query->pos;
     int tot_hits = 0; 
     query->b0 = query->n_diff;
     query->b1 = 100000;
     for(i = 0; i < 2; ++i){
-        int n = 0;
         hits_t *hits = i==0?hits0:hits1; 
         hit_t *a = hits->a;
         uint32_t last_pos = (uint32_t)-1; 
         for(j = 0; j < hits->n; ++j){
 
             if(a[j].strand != i){
-                fprintf(stderr, "[%s]: %s hits[%d] strand %d\n", __func__, query->name, i, a[j].strand);
+                fprintf(stderr, "[%s]: %s hits[%lu] strand %d\n", __func__, query->name, i, a[j].strand);
             
             }
 

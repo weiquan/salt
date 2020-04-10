@@ -19,7 +19,7 @@ OBJS=		bwt.o bwtio.o bwtmisc.o rbwt.o\
 		query.o sam.o\
 		aln.o alnse.o alnpe.o indexio.o 
 
-PROG=		snpaln snpaln_debug 
+PROG=		salt salt_debug 
 INCLUDES=		
 LIBS=		-lm -lz -lpthread 
 SUBDIRS=
@@ -28,10 +28,10 @@ SUBDIRS=
 
 all:$(PROG)
 
-snpaln:$(SRC)
+salt:$(SRC)
 	$(CC) $(CFLAGS) $(SRC) -o $@ $(LIBS)
 
-snpaln_debug:$(SRC)
+salt_debug:$(SRC)
 	$(CC) $(DFLAGS) $(SRC) -o $@ $(LIBS)
 
 clean:

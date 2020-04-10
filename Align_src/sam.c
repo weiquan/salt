@@ -330,7 +330,6 @@ void sam_add_md_nm(kstring_t *s, index_t *index, query_t *q)
 #define STRAND_REV 1
 void alnpe_sam(index_t *index, query_t *q, const aln_opt_t *opt)
 {
-
     bntseq_t *bntseq = index->bntseq;
     int i, j;
     const uint8_t *seq, *rseq, *qual;

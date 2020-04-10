@@ -135,7 +135,7 @@ static inline aln_opt_t* aln_opt_init(const opt_t *opt){
     aln_opt->filters = 0;
     aln_opt->filterd = 20;
 //    opt->thres_score = 150;
-    aln_opt->thres_score = 0;
+    aln_opt->thres_score = 50;
     aln_opt->print_nm_md = opt->print_nm_md;
     aln_opt->print_xa_cigar = opt->print_xa_cigar;
     aln_opt->rg_id = opt->rg_id;

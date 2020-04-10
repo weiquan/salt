@@ -29,6 +29,7 @@
 #include "bwt.h"
 #include "aln.h"
 #include "editdistance.h"
+#include "ssw.h"
 #include "sam.h" 
 
 #define __sai_lt(a, b) ((a).ep -(a).sp < (b).ep - (b).sp)
@@ -779,6 +780,94 @@ int alnse_check_nogap(index_t *index, query_t *query, int max_diff, int strand, 
         return flag_match!=NO_MATCH ?max_diff:NO_MATCH;
     }
 }
+#define __get_mixref(pac, l) (((pac)[(l)>>3]>>4*((l)%8))&15)
+int sw_snp(index_t *index, uint32_t start_pos, uint32_t end_pos, query_t *q, hits_t *hits, int strand, int thres_sc, const aln_opt_t *opt)
+{
+    extern int8_t score_mat2[256];
+    int i;
+    int min_score = thres_sc; 
+    if((start_pos)>=index->bntseq->l_pac){ 
+        fprintf(stderr, "error %s\n", q->name);
+        exit(1);
+    }
+    const uint32_t start = start_pos, end = end_pos;
+    uint8_t *seq = strand?q->rseq:q->seq;
+    int32_t l_seq = q->l_seq; 
+   
+    
+    int32_t l_ref = end -start +1; 
+    uint8_t *ref = (uint8_t *)calloc(l_ref, 1);
+    uint8_t *read = (uint8_t *)calloc(l_seq, 1);
+    
+    for(i = 0; i != end - start +1; ++i){
+        ref[i] = __get_mixref(index->mixRef->seq, start+i);
+    }        
+    for(i = 0; i < l_seq; ++i) read[i] = 1<<seq[i]; 
+    s_profile *p = ssw_init((int8_t *)read, l_seq, score_mat2, 16, 1); 
+    //fprintf(stderr, "Ref:\n");
+    //for(i = 0; i != end - start +1; ++i) fprintf(stderr, "%c", "ACGT"[ref[i]]);
+    //fprintf(stderr, "\nSeq:\n");
+    //for(i = 0; i != l_seq; ++i) fprintf(stderr, "%c", "ACGT"[seq[i]]);
+    uint8_t flag = 2;
+    //int filter = 80;
+    //int filtered = 0;
+    int maskLen = q->l_seq/2;
+    s_align *result = ssw_align(p, (int8_t *)ref, l_ref, opt->gap_op, opt->gap_ex, flag, opt->filters, opt->filterd, maskLen);//note: filterd no effect
+
+    if(result->score1 >= q->b0 && result->read_end1-result->read_begin1+1 >=opt->filterd){
+        q->b0 = result->score1;
+        q->b1 = result->score2;
+        q->mapq = gen_mapq(q->b0, q->b1);
+        q->pos = result->ref_begin1+start;
+        q->strand = strand;
+        q->seq_start = result->read_begin1;
+        q->seq_end = result->read_end1;
+        q->cigar->l = 0;//clean cigar data 
+        int j;
+        for(j = 0; j < result->cigarLen; ++j) {
+            uint32_t cigar = result->cigar[j];    
+            ksprintf(q->cigar, "%u%c",cigar>>4,"MID"[cigar&15]);//Cigar
+        }
+        
+        //*start_pos = result->ref_begin1+start;
+        //*end_pos = result->ref_end1 +start;
+
+        q->seq_start = result->read_begin1;
+        q->seq_end = result->read_end1;
+    } else{
+        /*  
+        if(result->score1 >= min_score ||q->b0 == -1) {
+            min_score = result->score1;
+            q->is_gap = 1;
+            q->n_diff = -result->score1;
+            q->strand = strand;
+            q->pos = result->ref_begin1+start;
+        }
+        */
+        if(hits->n == hits->m){
+            hits->m = hits->m?hits->m<<1:2; 
+            hits->a = realloc(hits->a, sizeof(hit_t) * hits->m);
+        }
+        hit_t *hit = hits->a+hits->n;
+        hit->is_gap = 1;
+        hit->n_diff = -result->score1;
+        hit->pos = result->ref_begin1+start;
+        hit->strand = strand;
+        ++hits->n;
+    }
+    
+    //fprintf(stderr, "\nRef Pos:[%d, %d]\n",result->ref_begin1, result->ref_end1);
+    //fprintf(stderr, "Seq Pos:[%d, %d]\n", result->read_begin1, result->read_end1);
+
+
+    free(ref);
+    free(read);
+    align_destroy(result);
+    init_destroy(p);
+    return result->score1;
+}
+
+
 int alnse_check_withgap(index_t *index, query_t *query, int max_diff, int strand, aux_t *aux_data)
 {
     uint32_t l_seq = query->l_seq;
@@ -808,6 +897,34 @@ int alnse_check_withgap(index_t *index, query_t *query, int max_diff, int strand
             pos0 = pos1; 
         }
         return flag_match!=NO_MATCH ?max_diff:NO_MATCH;
+    }
+}
+int alnse_check_sw(index_t *index, query_t *query, int thres_sc, int strand, const aln_opt_t *opt, aux_t *aux_data)
+{
+    int i;
+    uint32_t l_seq = query->l_seq;
+    uint8_t *seq = strand == 0?query->seq:query->rseq;
+    uint32_t j, pos = (uint32_t)-1;
+
+    mixRef_t *mref = index->mixRef;
+    hit_t hit;
+    hits_t *hits = &aux_data->hits;
+    int flag_match = NO_MATCH;
+    { 
+        uint32_t n = aux_data->loci.n;
+        uint32_t *a = aux_data->loci.a;
+        //ks_introsort(uint32_t, n, a);
+        //qsort(vec.a, vec.n, sizeof(uint32_t), __lt);
+
+        uint32_t pos0, pos1;
+        pos0 = (uint32_t) -1;
+        for(i = 0; i < n; ++i){
+            pos1 = a[i];
+            if(pos1 == pos0 || pos1+l_seq+4 >= mref->l) continue;
+            thres_sc = sw_snp(index, pos1, pos1+l_seq+4, query, hits, strand, thres_sc, opt);
+            pos0 = pos1; 
+        }
+        return thres_sc >= opt->thres_score ?thres_sc:NO_MATCH;
     }
 }
 
@@ -985,6 +1102,66 @@ max_diff = l_seq/10;
 
 
 }
+void alnse_overlap_sw(index_t *index, query_t *query, aln_opt_t* aln_opt, aux_t *aux_data[2])
+{
+   
+
+    uint32_t max_locate = aln_opt->max_locate;
+    int max_diff = aln_opt->max_diff; 
+    
+    int l_seq = query->l_seq;
+    uint8_t *seq= query->seq;
+    uint8_t *rseq = query->rseq;
+#ifdef DEBUG
+    if(seq == NULL|| rseq == NULL){
+        fprintf(stderr, "[%s]: seq[%u] == '' !!!", __func__, (unsigned int )query); 
+        exit(1); 
+    } 
+    fprintf(stderr, "\n[aligning] %s\n", query->name);
+#endif
+    if(max_diff < 0){ max_diff = l_seq/10; }
+    //generate genomic loci 
+
+    alnse_seed_overlap(index, l_seq, seq, aln_opt, aux_data[0]);
+    alnse_locate_alt(index, l_seq, aln_opt->max_locate, aux_data[0]);
+    alnse_seed_overlap(index, l_seq, rseq, aln_opt, aux_data[1]);
+    alnse_locate_alt(index, l_seq, aln_opt->max_locate, aux_data[1]);
+    //fprintf(stderr, "\n");
+    //check without indel 
+
+    //fprintf(stderr, "[Extending] %s\n", query->name);
+
+#ifdef DEBUG
+    fprintf(stderr, "Check no gap...");
+#endif
+    int n_mismatch0 = NO_MATCH, n_mismatch1= NO_MATCH;
+    if(!SKIP_NOGAP){
+max_diff = 3;
+        n_mismatch0 = alnse_check_nogap(index, query, max_diff, 0, aux_data[0]);
+        if(n_mismatch0 !=NO_MATCH &&n_mismatch0<max_diff) max_diff = n_mismatch0;
+        n_mismatch1 = alnse_check_nogap(index, query, max_diff, 1, aux_data[1]);
+        if(n_mismatch1 !=NO_MATCH &&n_mismatch1<max_diff) max_diff = n_mismatch1;
+    }
+#ifdef DEBUG
+    fprintf(stderr, "Check with gap...");
+#endif
+    //check with indel 
+    if(n_mismatch0 == NO_MATCH && n_mismatch1 == NO_MATCH){
+        int thres_score = aln_opt->thres_score;
+        int sc0 = alnse_check_sw(index, query, thres_score, 0, aln_opt, aux_data[0]);
+        if(sc0>thres_score) thres_score = sc0;
+        int sc1 = alnse_check_sw(index, query, thres_score, 1, aln_opt, aux_data[1]);
+        if(sc1>thres_score) thres_score = sc1;
+    }
+    //query_set_hits(query, aln_opt->max_hits, &aux_data[0]->hits, &aux_data[1]->hits); 
+    
+               
+    return;    
+    
+
+
+
+}
 
 
 /* 
@@ -1107,9 +1284,9 @@ void alnse_core_thread(int tid, index_t *index, int n_query, query_t *multi_quer
     int i;
     while(1){
 	    pthread_rwlock_wrlock(&rwlock);
-	    i = g_n_seqs++;
+        i = g_n_seqs++; 
         pthread_rwlock_unlock(&rwlock);
-	    if(i >= n_query) break;
+        if(i >= n_query) break;
 
         //fprintf(stderr, "[tid:%d]run seq %d", tid, i); 
         //fprintf(stderr, "aln_opt:%d", aln_opt->n_threads); 
@@ -1156,13 +1333,14 @@ void alnse_core1(int tid, index_t *index, int n_query, query_t *multi_query, aln
         }
         aux_reset(aux[0]); 
         aux_reset(aux[1]); 
-        if(aln_opt->l_overlap > 0) alnse_overlap_alt(index, query, aln_opt, aux);
+        //if(aln_opt->l_overlap > 0) alnse_overlap_alt(index, query, aln_opt, aux);
+        if(aln_opt->l_overlap > 0) alnse_overlap_sw(index, query, aln_opt, aux);
         else{
             fprintf(stderr, "Shouldn't be here!!!\n", aln_opt->n_threads); 
             exit(1);
             alnse_nonoverlap(index, query, aln_opt, aux); 
         }
-        query_gen_cigar(index->mixRef->l, index->mixRef->seq, query);
+        //query_gen_cigar(index->mixRef->l, index->mixRef->seq, query);
         aln_samse(index, query, aln_opt);
     }
     
