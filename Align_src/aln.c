@@ -25,8 +25,6 @@
 #define PACKAGE_VERSION "beta0.1"
 #define CONTACT "Quan Wei <wquanhit@gmail.com>"
 
-
-
 opt_t *opt_init(){
 
     fprintf(stderr, "[opt_init]:opt init!\n"); 
@@ -49,6 +47,7 @@ opt_t *opt_init(){
     opt->max_locate = 1000;//max locate number per bwt range
     opt->max_hits = 50; 
     opt->max_walk = 1000;    
+    opt->extend_algo = EXTEND_SW;
     opt->se = 1;
     opt->l_read = 100;
     opt->print_xa_cigar = 0;

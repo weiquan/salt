@@ -1334,7 +1334,10 @@ void alnse_core1(int tid, index_t *index, int n_query, query_t *multi_query, aln
         aux_reset(aux[0]); 
         aux_reset(aux[1]); 
         //if(aln_opt->l_overlap > 0) alnse_overlap_alt(index, query, aln_opt, aux);
-        if(aln_opt->l_overlap > 0) alnse_overlap_sw(index, query, aln_opt, aux);
+        if(aln_opt->l_overlap > 0) 
+            if(aln_opt->extend_algo == EXTEND_SW) alnse_overlap_sw(index, query, aln_opt, aux);
+            else alnse_overlap_alt(index, query, aln_opt, aux);
+
         else{
             fprintf(stderr, "Shouldn't be here!!!\n", aln_opt->n_threads); 
             exit(1);

@@ -43,14 +43,14 @@ int computeEditDistance(
         if (x) {
             x = *((_uint64*) p) & *((_uint64*)t);  
 
-            int zeroes = 0;
+            int zeors = 0;
             while(x&255){
                 x >>= 8;
-                ++zeroes; 
+                ++zeors; 
             
             }
-            L[0][MAX_K] = __min((int)(p - pattern) + (int)zeroes, endl);
-            goto done1;
+            L[0][MAX_K] = __min((int)(p - pattern) + (int)zeors, endl);
+            if(zeors < 8) goto done1;
         }
         p += 8;
         t += 8;
@@ -86,13 +86,13 @@ done1:
                     if (x) {
                         x = *((_uint64*) p) & *((_uint64*)t);  
 
-                        int zeroes = 0;
+                        int zeors = 0;
                         while(x&255){
                             x >>= 8;
-                            ++zeroes; 
+                            ++zeors; 
                         }
-                        best = __min((int)(p - pattern) + (int)zeroes, endl);
-                        break;
+                        best = __min((int)(p - pattern) + (int)zeors, endl);
+                        if(zeors < 8) break;
                     }
                     p += 8;
                     if (p >= pend) {
@@ -206,15 +206,15 @@ int computeEditDistanceWithCigar(
             
             x = *((_uint64*) p) & *((_uint64*)t);  
 
-            int zeroes = 0;
+            int zeors = 0;
             while(x&255){
                 x >>= 8;
-                ++zeroes; 
+                ++zeors; 
             
             }
 
-            L[0][MAX_K] = __min((int)(p - pattern) + (int)zeroes, end);
-            goto done1;
+            L[0][MAX_K] = __min((int)(p - pattern) + (int)zeors, end);
+            if(zeors < 8) goto done1;
         }
         p += 8;
         t += 8;
@@ -270,14 +270,14 @@ done1:
                     if (x) {
                         
                         x = *((_uint64*) p) & *((_uint64*)t);  
-                        int zeroes = 0;
+                        int zeors = 0;
                         while(x&255){
                             x >>= 8;
-                            ++zeroes; 
+                            ++zeors; 
                     
                         }
-                        best = __min((int)(p - pattern) + (int)zeroes, end);
-                        break;
+                        best = __min((int)(p - pattern) + (int)zeors, end);
+                        if(zeors < 8) break;
                     }
                     p += 8;
                     if (p >= pend) {

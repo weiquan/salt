@@ -25,6 +25,10 @@
 
 //#define N_SEQS 0x40000
 #define N_SEQS 100000
+#define EXTEND_LV 0
+#define EXTEND_SW 1
+
+
 typedef struct{
     int se;//1:SE;0:PE
     unsigned int max_tlen, min_tlen;
@@ -64,6 +68,7 @@ typedef struct{
     uint32_t max_locate; //max locations per bwt range
     //seeding arguments 
     int seed_only_ref;
+    int extend_algo;
     uint32_t max_seed; //max locations per bwt range
     int l_seed;
     int l_overlap;
@@ -126,6 +131,7 @@ static inline aln_opt_t* aln_opt_init(const opt_t *opt){
     aln_opt->max_locate = opt->max_locate; 
     aln_opt->max_seed = opt->max_seed; 
     aln_opt->max_hits = 5;
+    aln_opt->extend_algo = opt->extend_algo;
     
     
     aln_opt->gap_op = 3;
