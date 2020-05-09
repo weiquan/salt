@@ -47,7 +47,7 @@ opt_t *opt_init(){
     opt->max_locate = 1000;//max locate number per bwt range
     opt->max_hits = 50; 
     opt->max_walk = 1000;    
-    opt->extend_algo = EXTEND_SW;
+    opt->extend_algo = EXTEND_LV;
     opt->se = 1;
     opt->l_read = 100;
     opt->print_xa_cigar = 0;
@@ -161,7 +161,7 @@ int opt_parse(int argc, char *argv[], opt_t* opt){
                 opt->rg_id = strdup(optarg);
                 break;
             case 'e':
-                opt->use_sw_extend = 1; 
+                opt->use_sw_extend = 0; 
                 break;
             case 's':
                 opt->max_seed = atoi(optarg); 

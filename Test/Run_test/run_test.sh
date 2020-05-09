@@ -1,5 +1,5 @@
 #!/bin/bash 
-sim_read=F #True for sim reads /False for not sim reads
+sim_read=T #True for sim reads /False for not sim reads
 build_index=T
 read_len=100
 
@@ -10,10 +10,10 @@ ref_folder=../Genome
 ref=Genome.fa
 variants=../Variants/mutations.txt
 hapmap=../Variants/hapmap.txt
-snpaln_folder=../../Bin
-snpaln_index_folder=../Index
-snpaln_index=${ref}.snpaln.index
-snpaln_sam_folder=../SAM
+salt_folder=../../Bin
+salt_index_folder=../Index
+salt_index=${ref}.salt.index
+salt_sam_folder=../SAM
 
 
 if [ $sim_read == T ];then
@@ -29,11 +29,11 @@ echo ===convert mutations.txt to hapmap.txt end===
 
 echo ===Indexing===
 if [ $build_index == T ];then
-  $snpaln_folder/index -k 19 $ref_folder/$ref $hapmap $snpaln_index_folder/$snpaln_index
+  $salt_folder/salt-idx -k 19 $ref_folder/$ref $hapmap $salt_index_folder/$salt_index
 fi
 echo ===Indexing end===
 
-./run_se_test.sh $snpaln_folder $snpaln_index_folder $snpaln_index $read_folder $read_prefix $snpaln_sam_folder $wgsim_folder $read_len
-#./run_pe_test.sh $snpaln_folder $snpaln_index_folder $snpaln_index $read_folder $read_prefix $snpaln_sam_folder $wgsim_folder $read_len
+#./run_se_test.sh $salt_folder $salt_index_folder $salt_index $read_folder $read_prefix $salt_sam_folder $wgsim_folder $read_len
+./run_pe_test.sh $salt_folder $salt_index_folder $salt_index $read_folder $read_prefix $salt_sam_folder $wgsim_folder $read_len
 
 
