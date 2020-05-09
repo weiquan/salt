@@ -507,7 +507,7 @@ void alnpe_core1(int tid, index_t *index, int n_query, query_t *multi_query, aln
         query_t *q0 = multi_query+i*2;
         query_t *q1 = multi_query+i*2+1;
         
-        fprintf(stderr, "pos = %u %u\n", q0->pos, q1->pos);
+        //fprintf(stderr, "pos = %u %u\n", q0->pos, q1->pos);
         if(q0->pos != 0xFFFFFFFF  && q1->pos != 0xFFFFFFFF){
             pairing2(index, q0, q1, aln_opt);
         } else if(q0->pos != 0xFFFFFFFF || q1->pos != 0xFFFFFFFF){
@@ -515,7 +515,7 @@ void alnpe_core1(int tid, index_t *index, int n_query, query_t *multi_query, aln
         } else{
             
         }
-        fprintf(stderr, "pos = %u %u\n", q0->pos, q1->pos);
+        //fprintf(stderr, "pos = %u %u\n", q0->pos, q1->pos);
         alnpe_sam(index, multi_query+i*2, aln_opt);
     }
 }

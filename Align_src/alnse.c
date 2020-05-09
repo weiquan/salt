@@ -813,7 +813,7 @@ int sw_snp(index_t *index, uint32_t start_pos, uint32_t end_pos, query_t *q, hit
     //int filtered = 0;
     int maskLen = q->l_seq/2;
     s_align *result = ssw_align(p, (int8_t *)ref, l_ref, opt->gap_op, opt->gap_ex, flag, opt->filters, opt->filterd, maskLen);//note: filterd no effect
-
+  
     if(result->score1 >= q->b0 && result->read_end1-result->read_begin1+1 >=opt->filterd){
         q->b0 = result->score1;
         q->b1 = result->score2;
@@ -858,13 +858,13 @@ int sw_snp(index_t *index, uint32_t start_pos, uint32_t end_pos, query_t *q, hit
     
     //fprintf(stderr, "\nRef Pos:[%d, %d]\n",result->ref_begin1, result->ref_end1);
     //fprintf(stderr, "Seq Pos:[%d, %d]\n", result->read_begin1, result->read_end1);
-
-
+    
+    int sc = result->score1;  
     free(ref);
     free(read);
     align_destroy(result);
     init_destroy(p);
-    return result->score1;
+    return sc;
 }
 
 
@@ -1005,12 +1005,12 @@ void alnse_overlap(index_t *index, query_t *query, aln_opt_t* aln_opt, aux_t *au
     alnse_locate(index, l_seq, max_locate, aux_data[0]);
     alnse_seed_overlap(index, l_seq, rseq, aln_opt, aux_data[1]);
     alnse_locate(index, l_seq, max_locate, aux_data[1]);
+    /*  
     fprintf(stderr, "\n");
     //check without indel 
-
     fprintf(stderr, "[Extending] %s\n", query->name);
     fprintf(stderr, "Check no gap...\n");
-
+    */
     int n_mismatch0 = NO_MATCH, n_mismatch1= NO_MATCH;
     if(!SKIP_NOGAP){
 max_diff = 3;
@@ -1020,8 +1020,8 @@ max_diff = 3;
         if(n_mismatch1 !=NO_MATCH &&n_mismatch1<max_diff) max_diff = n_mismatch1;
     }
 
-    fprintf(stderr, "pos = %u\n", query->pos);
-    fprintf(stderr, "Check with gap...\n");
+    //fprintf(stderr, "pos = %u\n", query->pos);
+    //fprintf(stderr, "Check with gap...\n");
     //check with indel 
     if(n_mismatch0 == NO_MATCH && n_mismatch1 == NO_MATCH){
 if(max_diff < 0){ max_diff = l_seq/10; }
@@ -1032,9 +1032,9 @@ if(max_diff < 0){ max_diff = l_seq/10; }
         if(n_diff0 == NO_MATCH && n_diff1 == NO_MATCH) max_diff = NO_MATCH; 
     }
 
-    fprintf(stderr, "pos = %u\n", query->pos);
+    //fprintf(stderr, "pos = %u\n", query->pos);
     query_set_hits(query, aln_opt->max_hits, &aux_data[0]->hits, &aux_data[1]->hits); 
-    fprintf(stderr, "pos = %u\n", query->pos);
+    //fprintf(stderr, "pos = %u\n", query->pos);
     
     return;    
     
@@ -1334,11 +1334,13 @@ void alnse_core1(int tid, index_t *index, int n_query, query_t *multi_query, aln
         aux_reset(aux[0]); 
         aux_reset(aux[1]); 
         //if(aln_opt->l_overlap > 0) alnse_overlap_alt(index, query, aln_opt, aux);
-        if(aln_opt->l_overlap > 0) 
+        if(aln_opt->l_overlap > 0){ 
             if(aln_opt->extend_algo == EXTEND_SW) alnse_overlap_sw(index, query, aln_opt, aux);
-            else alnse_overlap_alt(index, query, aln_opt, aux);
-
-        else{
+            else{ 
+                alnse_overlap_alt(index, query, aln_opt, aux);
+            }
+            query_gen_cigar(index->mixRef->l, index->mixRef->seq, query);
+        } else{
             fprintf(stderr, "Shouldn't be here!!!\n", aln_opt->n_threads); 
             exit(1);
             alnse_nonoverlap(index, query, aln_opt, aux); 

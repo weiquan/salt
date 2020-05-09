@@ -19,7 +19,7 @@
 #include <stdlib.h>
 int main ( int argc, char *argv[] )
 {
-    FILE *fp = fopen("index.snpaln.R.seedLen", "w");
+    FILE *fp = fopen("index.salt.R.seedLen", "w");
     int seedLen = 25;
     fwrite(&seedLen, sizeof(int), 1, fp);
     fclose(fp); 

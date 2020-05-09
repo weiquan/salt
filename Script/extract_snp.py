@@ -44,6 +44,7 @@ def extract_variants(fn_snp):
             refNCBI, refUCSC, observed, molType, variantType) = line.split('\t')[:12]
         except ValueError:
             continue
+        chrom = chrom.lstrip('chr')
         chromStart = int(chromStart)
         chromEnd = int(chromEnd)
     
